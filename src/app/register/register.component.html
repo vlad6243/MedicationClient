@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+      <form class="col s12"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input type="text" 
+                     formControlName="username" 
+                     class="validate"
+                     [ngClass]="{'invalid': form.get('username').invalid && form.get('username').touched}">
+              <label for="icon_prefix">Login</label>
+              <span
+                  class="helper-text red-text"
+                  *ngIf="form.get('username').invalid && form.get('username').touched">
+                  <span *ngIf="form.get('username').errors['required']">Empty login</span>
+                  <span *ngIf="form.get('username').errors['minlength'] && form.get('username').errors['minlength']['requiredLength']">
+                    Minimum length {{form.get('username').errors['minlength']['requiredLength']}}.
+                    Now {{form.get('username').errors['minlength']['actualLength']}}
+                  </span>
+              </span>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input type="email" 
+                     formControlName="email" 
+                     class="validate"
+                     [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}">
+              <label for="icon_email">Email</label>
+              <span
+                  class="helper-text red-text"
+                  *ngIf="form.get('email').invalid && form.get('email').touched">
+                  <span *ngIf="form.get('email').errors['required']">Empty email</span>
+                  <span *ngIf="form.get('email').errors['email']">Incorrect email</span>
+              </span>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock</i>
+              <input type="password" 
+                     formControlName="password" 
+                     class="validate"
+                     [ngClass]="{'invalid': form.get('password').invalid && form.get('password').touched}">
+              <label for="icon_email">Password</label>
+              <span
+                  class="helper-text red-text"
+                  *ngIf="form.get('password').invalid && form.get('password').touched">
+                  <span *ngIf="form.get('password').errors['required']">Empty password</span>
+                  <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+                    Minimum length password {{form.get('password').errors['minlength']['requiredLength']}}.
+                    Now {{form.get('password').errors['minlength']['actualLength']}}
+                  </span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" 
+                    value="Submit" 
+                    class="black btn waves-effect waves-light col s2 offset-s5"
+                    [disabled]="form.invalid || form.disabled"
+            >Started</button>
+          </div> 
+        </form>
+  </div>
+</div>
