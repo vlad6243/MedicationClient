@@ -53,4 +53,10 @@ export class MaterialService {
         interval: 6000
       });
   }
+
+  static initCollapsible(ref: ElementRef): MaterialInstance{
+    return M.Collapsible.init(ref.nativeElement,{
+      accordion:true
+    })
+  }
 }

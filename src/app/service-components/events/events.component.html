@@ -1,0 +1,32 @@
+  <div class="container">
+    <div class="row" *ngIf="users$ | async as users; else loader">    
+      <div class="col s12 m6 l6" *ngIf="users.length !== 0; else empty">
+          <div class="card horizontal" *ngFor="let user of users">
+            <div class="card-image">
+              <img src="assets/img/10.jpg">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>{{user.firstName}}</p>
+                <p>{{user.lastName}}</p>
+                <p>{{user.phoneNumber}}</p>
+                <p>{{user.age}}</p>
+                <p>{{user.position}}</p>
+              </div>
+              <div class="card-action">
+                <a href="http://www.freetimelearning.com" target="_blank" class="btn blue col s12">Appointment</a>
+              </div>
+            </div>
+          </div>
+      </div> 
+      <ng-template #empty>
+        <div class="center">
+            There is no History.
+        </div>
+      </ng-template>
+  </div> 
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

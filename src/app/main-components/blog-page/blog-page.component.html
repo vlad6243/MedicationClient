@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row" *ngIf="blogs$ | async as blogs; else loader">
+        <div class="col s9 offset-s2" *ngIf="blogs.length !== 0; else empty">
+                <div class="card"  *ngFor="let blog of blogs">
+                    <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="assets/img/7.jpg">
+                    </div>
+                    <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{blog.header}}<i class="material-icons right">more_vert</i></span>
+                    </div>
+                    <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{blog.header}}<i class="material-icons right">close</i></span>
+                    <p>{{blog.text}}</p>
+                    <p>{{blog.author}}</p>
+                    </div>
+                </div>
+                <ng-template #empty>
+                    <div class="center">
+                        There is no blogs.
+                    </div>
+                  </ng-template>
+        </div>
+      </div>    
+</div>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
+
+
+
+
+

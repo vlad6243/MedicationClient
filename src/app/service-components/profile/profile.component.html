@@ -1,0 +1,107 @@
+<!-- Section: Contact -->
+<section id="contact" class="section section-contact scrollspy">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-panel teal white-text center">
+            
+                <div class="card-image">
+                  <img src="assets/img/11.jpg" class="circle responsive-img">
+                </div>
+            
+              <h5>Hospital of St. Arcadia</h5>
+             <p><i class="material-icons">local_hospital</i></p>
+              <p>The best hospital in Ukraine and even in Europe which saves many lives every day.</p>
+            </div>
+          </div>
+          <ul class="collection with-header">
+            <li class="collection-header">
+              <h4>Location</h4>
+            </li>
+            <li class="collection-item">city:  Odessa</li>
+            <li class="collection-item">district:  Primorsky</li>
+            <li class="collection-item">street:  Kamanina22</li>
+          </ul>
+        </div>
+        <div class="col s12 m6" >
+          <form >
+            <div class="card-panel grey lighten-3">
+              <h5>Please fill out this form</h5>
+              <div class="input-field">
+              <input type="text" 
+                disabled
+                placeholder="Login"
+                [value]="usernameValue">
+              </div>
+              <div class="input-field">
+                <input type="text" 
+                disabled
+                placeholder="Email" 
+                [value]="emailValue">
+              </div>
+              <div class="input-field">
+                <input 
+                type="text" 
+                disabled
+                placeholder="First Name" 
+                [value]="firstNameValue">
+              </div>
+              <div class="input-field">
+                <input 
+                type="text" 
+                disabled
+                placeholder="Last Name" 
+                [value]="lastNameValue">
+              </div>
+              <div class="input-field">
+                <input 
+                type="text" 
+                disabled
+                placeholder="Age" 
+                [value]="ageValue">
+              </div>
+              <div class="input-field">
+                <input 
+                type="text" 
+                disabled
+                placeholder="Phone" 
+                [value]="phoneValue">
+              </div>
+             <input type="submit" value="Change" class="btn" (click)="open()"> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div #modal class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <form 
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()">
+            <div class="card-panel grey lighten-3">
+              <h5>Please fill out this form</h5>
+              <div class="input-field">
+                <input type="text" 
+                placeholder="Email" 
+                formControlName="email">
+              </div>
+              <div class="input-field">
+                <input 
+                type="text" 
+                placeholder="First Name" 
+                formControlName="firstName">
+              </div>
+              <div class="input-field">
+                <input 
+                type="text" 
+                placeholder="Last Name" 
+                formControlName="lastName">
+              </div>
+             <input type="submit" value="Change" class="btn" (click)="onSubmit()"> 
+            </div>
+          </form>
+    </div>
+  </div>

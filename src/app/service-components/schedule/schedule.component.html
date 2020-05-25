@@ -1,0 +1,25 @@
+<div class="container" *ngIf="events$ | async as events; else loader"> 
+  <div class="card material-table" *ngIf="events.length !== 0; else empty">
+  <full-calendar
+  #calendar
+  defaultView="listWeek"
+  [header]="{
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,listWeek'
+  }"
+  [plugins]="calendarPlugins"
+  [events]= "events"
+></full-calendar>
+</div> 
+<ng-template #empty>
+  <div class="center">
+      There is no events.
+  </div>
+</ng-template>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+

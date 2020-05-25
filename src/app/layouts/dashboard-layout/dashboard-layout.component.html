@@ -1,2 +1,54 @@
-<p>dashboard-layout works!</p>
+<!-- Navbar -->
+<div class="navbar-fixed">
+    <nav class="teal">
+        <div class="nav-wrapper">
+          <a id="logo-container" routerLink="/main" class="brand-logo">
+            <i class="material-icons">local_hospital</i>Medication</a>
+          <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a routerLink="/profile">Profile</a>
+            </li>
+            <li>
+              <a routerLink="/history">History</a>
+            </li>
+            <li>
+              <a routerLink="/schedule">Schedule</a>
+            </li>
+            <li>
+              <a routerLink="/events">Events</a>
+            </li>
+            <li>
+              <a routerLink="/login" class="white black-text waves-effect waves-light btn"
+                >Sign OUT
+              </a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobile-nav">
+    <li>
+      <a routerLink="/profile">Profile</a>
+    </li>
+    <li>
+      <a routerLink="/history">History</a>
+    </li>
+    <li>
+      <a routerLink="/schedule">Schedule</a>
+    </li>
+    <li>
+      <a routerLink="/events">Events</a>
+    </li>
+    <li>
+      <a routerLink="/login" class="white black-text waves-effect waves-light btn"
+        >Sign OUT
+      </a>
+    </li>
+  </ul>
+
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

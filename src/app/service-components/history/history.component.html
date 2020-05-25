@@ -1,0 +1,30 @@
+<div class="container">
+  <table *ngIf="diagnosis$ | async as diagnosis; else loader">
+    <thead>
+      <tr>
+          <th>Name Diagnos</th>
+          <th>Description</th>
+          <th>Start date</th>
+          <th>Ends date</th>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="diagnosis.length !== 0; else empty">
+      <tr *ngFor="let diagnos of diagnosis">
+        <td>{{diagnos.name}}</td>
+        <td>{{diagnos.description}}</td>
+        <td>{{diagnos.startDate}}</td>
+        <td>{{diagnos.endDate}}</td>
+      </tr>
+    </tbody>
+    <ng-template #empty>
+      <div class="center">
+          There is no History.
+      </div>
+    </ng-template>
+  </table>
+</div>
+
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

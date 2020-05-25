@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { MaterialService } from '../shared/classes/material.service';
+import { MaterialService } from '../../shared/classes/material.service';
 
 @Component({
   selector: 'app-login',
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.form.disable()
 
     this.aSub = this.auth.login(this.form.value).subscribe(
-      () => this.router.navigate(['/myProfile']),
+      () => this.router.navigate(['/profile']),
       error => {
         MaterialService.toast(error.error.message)
         this.form.enable()
